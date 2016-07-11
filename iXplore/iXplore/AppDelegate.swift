@@ -16,6 +16,26 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
+        
+        // Create view controller
+        let viewController = MapViewController(nibName: "MapViewController", bundle: nil)
+        viewController.navigationItem.title = "iXplore"
+        
+        // Create navigation controller
+        let navigationController = UINavigationController(rootViewController: viewController)
+        
+        // Change button color of navigation controller
+        navigationController.navigationBar.tintColor = UIColor.orangeColor();
+        
+        // Create, prepare, and show window
+        window = UIWindow(frame: UIScreen.mainScreen().bounds)
+        
+        // Set Root View Controller to Navigation Controller
+        window?.rootViewController = navigationController
+        
+        // Make window visible
+        window?.makeKeyAndVisible()
+        
         return true
     }
 
@@ -40,7 +60,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func applicationWillTerminate(application: UIApplication) {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
-
 
 }
 

@@ -8,20 +8,32 @@
 
 /* Begin PBXBuildFile section */
 		F3846D4E1D33CBD0007CEE3E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3846D4D1D33CBD0007CEE3E /* AppDelegate.swift */; };
-		F3846D501D33CBD0007CEE3E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3846D4F1D33CBD0007CEE3E /* ViewController.swift */; };
-		F3846D531D33CBD0007CEE3E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F3846D511D33CBD0007CEE3E /* Main.storyboard */; };
 		F3846D551D33CBD0007CEE3E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F3846D541D33CBD0007CEE3E /* Assets.xcassets */; };
 		F3846D581D33CBD0007CEE3E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F3846D561D33CBD0007CEE3E /* LaunchScreen.storyboard */; };
+		F3846D651D33CC7D007CEE3E /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3846D631D33CC7D007CEE3E /* MapViewController.swift */; };
+		F3846D661D33CC7D007CEE3E /* MapViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F3846D641D33CC7D007CEE3E /* MapViewController.xib */; };
+		F3846D681D33CDA8007CEE3E /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F3846D671D33CDA8007CEE3E /* MapKit.framework */; };
+		F3846D6A1D33CDAE007CEE3E /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F3846D691D33CDAE007CEE3E /* CoreLocation.framework */; };
+		F3846D6C1D33D032007CEE3E /* JournalEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3846D6B1D33D032007CEE3E /* JournalEntry.swift */; };
+		F3846D8D1D33DB34007CEE3E /* JournalEntryModelController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3846D8C1D33DB34007CEE3E /* JournalEntryModelController.swift */; };
+		F3846D921D33FF12007CEE3E /* NewEntryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3846D901D33FF12007CEE3E /* NewEntryViewController.swift */; };
+		F3846D931D33FF12007CEE3E /* NewEntryViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F3846D911D33FF12007CEE3E /* NewEntryViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		F3846D4A1D33CBD0007CEE3E /* iXplore.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iXplore.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F3846D4D1D33CBD0007CEE3E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		F3846D4F1D33CBD0007CEE3E /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		F3846D521D33CBD0007CEE3E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		F3846D541D33CBD0007CEE3E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F3846D571D33CBD0007CEE3E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F3846D591D33CBD0007CEE3E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F3846D631D33CC7D007CEE3E /* MapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
+		F3846D641D33CC7D007CEE3E /* MapViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MapViewController.xib; sourceTree = "<group>"; };
+		F3846D671D33CDA8007CEE3E /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		F3846D691D33CDAE007CEE3E /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		F3846D6B1D33D032007CEE3E /* JournalEntry.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JournalEntry.swift; sourceTree = "<group>"; };
+		F3846D8C1D33DB34007CEE3E /* JournalEntryModelController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JournalEntryModelController.swift; sourceTree = "<group>"; };
+		F3846D901D33FF12007CEE3E /* NewEntryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewEntryViewController.swift; sourceTree = "<group>"; };
+		F3846D911D33FF12007CEE3E /* NewEntryViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NewEntryViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -29,6 +41,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F3846D6A1D33CDAE007CEE3E /* CoreLocation.framework in Frameworks */,
+				F3846D681D33CDA8007CEE3E /* MapKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -38,6 +52,8 @@
 		F3846D411D33CBD0007CEE3E = {
 			isa = PBXGroup;
 			children = (
+				F3846D691D33CDAE007CEE3E /* CoreLocation.framework */,
+				F3846D671D33CDA8007CEE3E /* MapKit.framework */,
 				F3846D4C1D33CBD0007CEE3E /* iXplore */,
 				F3846D4B1D33CBD0007CEE3E /* Products */,
 			);
@@ -55,13 +71,49 @@
 			isa = PBXGroup;
 			children = (
 				F3846D4D1D33CBD0007CEE3E /* AppDelegate.swift */,
-				F3846D4F1D33CBD0007CEE3E /* ViewController.swift */,
-				F3846D511D33CBD0007CEE3E /* Main.storyboard */,
+				F3846D6D1D33D037007CEE3E /* Models */,
+				F3846D951D33FF24007CEE3E /* Model Controllers */,
+				F3846D941D33FF1B007CEE3E /* View Controllers */,
+				F3846D961D33FF2D007CEE3E /* Views */,
 				F3846D541D33CBD0007CEE3E /* Assets.xcassets */,
-				F3846D561D33CBD0007CEE3E /* LaunchScreen.storyboard */,
 				F3846D591D33CBD0007CEE3E /* Info.plist */,
 			);
 			path = iXplore;
+			sourceTree = "<group>";
+		};
+		F3846D6D1D33D037007CEE3E /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				F3846D6B1D33D032007CEE3E /* JournalEntry.swift */,
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
+		F3846D941D33FF1B007CEE3E /* View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				F3846D631D33CC7D007CEE3E /* MapViewController.swift */,
+				F3846D901D33FF12007CEE3E /* NewEntryViewController.swift */,
+			);
+			name = "View Controllers";
+			sourceTree = "<group>";
+		};
+		F3846D951D33FF24007CEE3E /* Model Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				F3846D8C1D33DB34007CEE3E /* JournalEntryModelController.swift */,
+			);
+			name = "Model Controllers";
+			sourceTree = "<group>";
+		};
+		F3846D961D33FF2D007CEE3E /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				F3846D641D33CC7D007CEE3E /* MapViewController.xib */,
+				F3846D911D33FF12007CEE3E /* NewEntryViewController.xib */,
+				F3846D561D33CBD0007CEE3E /* LaunchScreen.storyboard */,
+			);
+			name = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -123,8 +175,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				F3846D581D33CBD0007CEE3E /* LaunchScreen.storyboard in Resources */,
+				F3846D661D33CC7D007CEE3E /* MapViewController.xib in Resources */,
+				F3846D931D33FF12007CEE3E /* NewEntryViewController.xib in Resources */,
 				F3846D551D33CBD0007CEE3E /* Assets.xcassets in Resources */,
-				F3846D531D33CBD0007CEE3E /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -135,22 +188,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F3846D501D33CBD0007CEE3E /* ViewController.swift in Sources */,
+				F3846D921D33FF12007CEE3E /* NewEntryViewController.swift in Sources */,
+				F3846D6C1D33D032007CEE3E /* JournalEntry.swift in Sources */,
 				F3846D4E1D33CBD0007CEE3E /* AppDelegate.swift in Sources */,
+				F3846D8D1D33DB34007CEE3E /* JournalEntryModelController.swift in Sources */,
+				F3846D651D33CC7D007CEE3E /* MapViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		F3846D511D33CBD0007CEE3E /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				F3846D521D33CBD0007CEE3E /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		F3846D561D33CBD0007CEE3E /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
