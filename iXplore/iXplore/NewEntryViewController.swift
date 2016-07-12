@@ -10,13 +10,15 @@ import UIKit
 import MapKit
 import CoreLocation
 
-class NewEntryViewController: UIViewController, CLLocationManagerDelegate {
+class NewEntryViewController: UIViewController, CLLocationManagerDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
 
     @IBOutlet weak var titleTextField: UITextField!
     @IBOutlet weak var notesTextField: UITextField!
     @IBOutlet weak var latitudeTextField: UITextField!
     @IBOutlet weak var longitudeTextField: UITextField!
+    @IBOutlet weak var imageView: UIImageView!
     
+    let imagePicker = UIImagePickerController()
     let locManager = CLLocationManager()
     var currentLocation: CLLocationCoordinate2D = CLLocationCoordinate2D()
     
@@ -27,7 +29,7 @@ class NewEntryViewController: UIViewController, CLLocationManagerDelegate {
         super.viewDidLoad()
         
         // Setting title of navigation bar
-        self.navigationItem.title = "New Journal Entry"
+        self.navigationItem.title = "Add Journal Entry"
         
         // Create selector
         let selector = #selector(dismissCurrentViewController)
@@ -43,7 +45,13 @@ class NewEntryViewController: UIViewController, CLLocationManagerDelegate {
         
         locManager.delegate = self
         locManager.requestWhenInUseAuthorization()
+        
+        locManager.desiredAccuracy = 90
+        locManager.distanceFilter = 20
         locManager.startUpdatingLocation()
+        
+        imagePicker.delegate = self
+        imagePicker.sourceType = .PhotoLibrary
         
     }
     
@@ -51,8 +59,23 @@ class NewEntryViewController: UIViewController, CLLocationManagerDelegate {
         
         currentLocation = CLLocationCoordinate2D(latitude: locations.last!.coordinate.latitude, longitude: locations.last!.coordinate.longitude)
         
-        latitudeTextField.text = String(currentLocation.latitude)
-        longitudeTextField.text = String(currentLocation.longitude)
+    }
+    
+    func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject]) {
+        
+        // cast the object as an image
+        if let pickedImage = info["UIImagePickerControllerOriginalImage"] as? UIImage {
+            imageView.contentMode = .ScaleAspectFit
+            // what should this be?
+            
+            imageView.image = pickedImage
+        }
+        
+        self.dismissViewControllerAnimated(true, completion: nil)
+    }
+    
+    @IBAction func uploadImagePressed(sender: AnyObject) {
+        self.presentViewController(imagePicker, animated: true) {}
     }
     
     @IBAction func saveButtonPressed(sender: AnyObject) {
@@ -74,7 +97,7 @@ class NewEntryViewController: UIViewController, CLLocationManagerDelegate {
             let month = components.month
             let day = components.day
             
-            let todayDate = "\(day)/\(month)/\(year)"
+            let todayDate = "\(month) \(day), \(year)"
             
             // Find documents folder
             let documents = myFile.URLsForDirectory(.DocumentDirectory, inDomains: .UserDomainMask)[0]
@@ -83,7 +106,7 @@ class NewEntryViewController: UIViewController, CLLocationManagerDelegate {
             let fileURL = documents.URLByAppendingPathComponent("JournalEntries.txt")
             
             // Adding entry to array
-            JournalEntryModelController.sharedInstance.addJournalEntry(titleTextField.text!, date: todayDate, coordinate: coordinate, note: notesTextField.text!)
+            JournalEntryModelController.sharedInstance.addJournalEntry(titleTextField.text!, date: todayDate, coordinate: coordinate, note: notesTextField.text!, image: imageView.image)
             
             // saving array
             NSKeyedArchiver.archiveRootObject(JournalEntryModelController.sharedInstance.journalEntryArray, toFile: fileURL.path!)
@@ -97,6 +120,13 @@ class NewEntryViewController: UIViewController, CLLocationManagerDelegate {
             // Create Alert
             
         }
+        
+    }
+    
+    @IBAction func updateToCurrentLocationPressed(sender: AnyObject) {
+        
+        latitudeTextField.text = String(currentLocation.latitude)
+        longitudeTextField.text = String(currentLocation.longitude)
         
     }
     

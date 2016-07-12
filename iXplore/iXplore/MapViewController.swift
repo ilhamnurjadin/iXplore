@@ -36,6 +36,9 @@ class MapViewController: UIViewController, UITableViewDelegate, UITableViewDataS
         // Add addButton to navigation bar of View Controller
         self.navigationItem.setRightBarButtonItem(addButton, animated: true)
         
+        // Table view has a cell
+        self.tableView.registerNib(UINib (nibName: "CustomTableViewCell", bundle: nil), forCellReuseIdentifier: "CellIdentifier")
+        
     }
     
     override func viewDidAppear(animated: Bool) {
@@ -57,6 +60,8 @@ class MapViewController: UIViewController, UITableViewDelegate, UITableViewDataS
         tableView.reloadData()
         
         locManager.requestWhenInUseAuthorization()
+        locManager.desiredAccuracy = 90
+        locManager.distanceFilter = 20
     }
 
     override func didReceiveMemoryWarning() {
@@ -82,15 +87,13 @@ class MapViewController: UIViewController, UITableViewDelegate, UITableViewDataS
     // What is displayed at each section
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
-        var cell = tableView.dequeueReusableCellWithIdentifier("CellIdentifier")
+        let cell = tableView.dequeueReusableCellWithIdentifier("CellIdentifier") as! CustomTableViewCell
         
-        if cell == nil {
-            cell = UITableViewCell(style: .Default, reuseIdentifier: "CellIdentifier")
-        }
+        cell.titleLabel.text = JournalEntryModelController.sharedInstance.journalEntryArray[indexPath.row].title
+        cell.dateLabel.text = JournalEntryModelController.sharedInstance.journalEntryArray[indexPath.row].date
+        cell.imageView?.image = JournalEntryModelController.sharedInstance.journalEntryArray[indexPath.row].image
         
-        cell!.textLabel?.text = JournalEntryModelController.sharedInstance.journalEntryArray[indexPath.row].title
-        
-        return cell!
+        return cell
     }
     
     // When a row is selected
@@ -142,10 +145,6 @@ class MapViewController: UIViewController, UITableViewDelegate, UITableViewDataS
         
         self.navigationController?.presentViewController(navController, animated: true) {}
         
-    }
-    
-    func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        let test: String! = String(locations.last)
     }
     
     /*

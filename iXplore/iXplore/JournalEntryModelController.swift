@@ -18,9 +18,9 @@ class JournalEntryModelController {
 //        journalEntryArray = [JournalEntry(title: "Never@Home", subtitle: "Hostel Place that isn't too great", coordinate: CLLocationCoordinate2D(latitude: -33.907772, longitude: 18.40918), date: "10 July 2016"), JournalEntry(title: "Workshop 17", subtitle: "The Workplace ye", coordinate: CLLocationCoordinate2D(latitude: -33.9068, longitude: 18.4222), date: "11 July 2016"),]
     }
     
-    func addJournalEntry(title: String, date: String, coordinate: CLLocationCoordinate2D, note: String) -> [JournalEntry] {
+    func addJournalEntry(title: String, date: String, coordinate: CLLocationCoordinate2D, note: String, image: UIImage?) -> [JournalEntry] {
         
-        let entry = JournalEntry(title: title, date: date, coordinate: coordinate, note: note)
+        let entry = JournalEntry(title: title, date: date, coordinate: coordinate, note: note, image: image)
         journalEntryArray.append(entry)        
         return journalEntryArray
         

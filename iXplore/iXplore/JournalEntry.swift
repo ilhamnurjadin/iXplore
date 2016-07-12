@@ -15,12 +15,14 @@ class JournalEntry: NSObject, MKAnnotation {
     var date: String?
     var coordinate: CLLocationCoordinate2D
     var note: String?
+    var image: UIImage?
     
-    init(title: String, date: String, coordinate: CLLocationCoordinate2D, note: String) {
+    init(title: String, date: String, coordinate: CLLocationCoordinate2D, note: String, image: UIImage?) {
         self.title = title
         self.date = date
         self.coordinate = coordinate
         self.note = note
+        self.image = image
     }
     
     required init(coder: NSCoder) {
@@ -32,6 +34,8 @@ class JournalEntry: NSObject, MKAnnotation {
         date = (coder.decodeObjectForKey("date") as? String) ?? ""
         coordinate = CLLocationCoordinate2D(latitude: latitude, longitude: longitude)
         note = (coder.decodeObjectForKey("note") as? String) ?? ""
+        
+        image = (coder.decodeObjectForKey("image") as? UIImage) ?? nil
     }
     
     func encodeWithCoder(coder: NSCoder) {
@@ -40,6 +44,7 @@ class JournalEntry: NSObject, MKAnnotation {
         coder.encodeObject(coordinate.latitude, forKey: "latitude")
         coder.encodeObject(coordinate.longitude, forKey: "longitude")
         coder.encodeObject(note, forKey: "note")
+        coder.encodeObject(image, forKey: "image")
     }
     
 }
