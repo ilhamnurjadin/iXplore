@@ -10,12 +10,15 @@ import UIKit
 import MapKit
 import CoreLocation
 
-class MapViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, MKMapViewDelegate {
+class MapViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, MKMapViewDelegate, CLLocationManagerDelegate {
     
     @IBOutlet weak var mapView: MKMapView!
     @IBOutlet weak var tableView: UITableView!
     
-    var journalEntryArray = [JournalEntry]()
+    // Persistence
+    let myFile = NSFileManager.defaultManager()
+    
+    let locManager = CLLocationManager()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,7 +26,7 @@ class MapViewController: UIViewController, UITableViewDelegate, UITableViewDataS
         mapView.delegate = self
         tableView.delegate = self
         tableView.dataSource = self
-        // Do any additional setup after loading the view.
+        locManager.delegate = self
         
         let selector = #selector(presentNewViewControllerModally)
         
@@ -36,12 +39,24 @@ class MapViewController: UIViewController, UITableViewDelegate, UITableViewDataS
     }
     
     override func viewDidAppear(animated: Bool) {
-        // Populate Array
-        journalEntryArray = JournalEntryModelController.sharedInstance.returnJournalEntries()
+        
+        // Persistence
+        // Find documents folder
+        let documents = myFile.URLsForDirectory(.DocumentDirectory, inDomains: .UserDomainMask)[0]
+        
+        // Create File
+        let fileURL = documents.URLByAppendingPathComponent("JournalEntries.txt")
+        
+        // Setting the stored array to the array in the model controller
+        if let entries = NSKeyedUnarchiver.unarchiveObjectWithFile(fileURL.path!) as? [JournalEntry] {
+            JournalEntryModelController.sharedInstance.journalEntryArray = entries
+        }
         
         // Add annotations
-        mapView.addAnnotations(journalEntryArray)
+        mapView.addAnnotations(JournalEntryModelController.sharedInstance.journalEntryArray)
         tableView.reloadData()
+        
+        locManager.requestWhenInUseAuthorization()
     }
 
     override func didReceiveMemoryWarning() {
@@ -61,7 +76,7 @@ class MapViewController: UIViewController, UITableViewDelegate, UITableViewDataS
     
     // Number of Rows in Section
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return journalEntryArray.count
+        return JournalEntryModelController.sharedInstance.journalEntryArray.count
     }
     
     // What is displayed at each section
@@ -73,7 +88,7 @@ class MapViewController: UIViewController, UITableViewDelegate, UITableViewDataS
             cell = UITableViewCell(style: .Default, reuseIdentifier: "CellIdentifier")
         }
         
-        cell!.textLabel?.text = journalEntryArray[indexPath.row].title
+        cell!.textLabel?.text = JournalEntryModelController.sharedInstance.journalEntryArray[indexPath.row].title
         
         return cell!
     }
@@ -82,7 +97,7 @@ class MapViewController: UIViewController, UITableViewDelegate, UITableViewDataS
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         
         // Sets the map's view when the app opens up (i.e. where the map points to)
-        let location = journalEntryArray[indexPath.row].coordinate  // location
+        let location = JournalEntryModelController.sharedInstance.journalEntryArray[indexPath.row].coordinate  // location
         let span = MKCoordinateSpan(latitudeDelta: 0.05, longitudeDelta: 0.05)  // how zoomed in your view is
         let region = MKCoordinateRegion(center: location, span: span)  // region where view is set to
         
@@ -96,6 +111,10 @@ class MapViewController: UIViewController, UITableViewDelegate, UITableViewDataS
         let identifier = "MyPin"
         
         var annotationView = mapView.dequeueReusableAnnotationViewWithIdentifier(identifier)
+        
+        if annotationView?.isKindOfClass(MKUserLocation) == nil {
+            return nil
+        }
         
         if annotationView == nil {
             
@@ -123,6 +142,10 @@ class MapViewController: UIViewController, UITableViewDelegate, UITableViewDataS
         
         self.navigationController?.presentViewController(navController, animated: true) {}
         
+    }
+    
+    func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        let test: String! = String(locations.last)
     }
     
     /*

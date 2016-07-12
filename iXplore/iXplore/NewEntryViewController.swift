@@ -8,13 +8,20 @@
 
 import UIKit
 import MapKit
+import CoreLocation
 
-class NewEntryViewController: UIViewController {
+class NewEntryViewController: UIViewController, CLLocationManagerDelegate {
 
     @IBOutlet weak var titleTextField: UITextField!
     @IBOutlet weak var notesTextField: UITextField!
     @IBOutlet weak var latitudeTextField: UITextField!
     @IBOutlet weak var longitudeTextField: UITextField!
+    
+    let locManager = CLLocationManager()
+    var currentLocation: CLLocationCoordinate2D = CLLocationCoordinate2D()
+    
+    // Persistence
+    let myFile = NSFileManager.defaultManager()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,17 +41,24 @@ class NewEntryViewController: UIViewController {
         // Add addButton to navigation bar of View Controller
         self.navigationItem.setLeftBarButtonItem(cancelButton, animated: true)
         
+        locManager.delegate = self
+        locManager.requestWhenInUseAuthorization()
+        locManager.startUpdatingLocation()
+        
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    
+    func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        
+        currentLocation = CLLocationCoordinate2D(latitude: locations.last!.coordinate.latitude, longitude: locations.last!.coordinate.longitude)
+        
+        latitudeTextField.text = String(currentLocation.latitude)
+        longitudeTextField.text = String(currentLocation.longitude)
     }
     
     @IBAction func saveButtonPressed(sender: AnyObject) {
         
-        let newLatitude: Double? = Double(latitudeTextField.text!)!
-        let newLongitude: Double? = Double(longitudeTextField.text!)!
+        let newLatitude: Double? = Double(latitudeTextField.text!)
+        let newLongitude: Double? = Double(longitudeTextField.text!)
         
         if newLatitude != nil && newLongitude != nil {
             
@@ -61,10 +75,18 @@ class NewEntryViewController: UIViewController {
             let day = components.day
             
             let todayDate = "\(day)/\(month)/\(year)"
-            print(JournalEntryModelController.sharedInstance.returnJournalEntries())
             
-            // Create Journal entry
-            JournalEntryModelController.sharedInstance.addJournalEntry(titleTextField.text!, subtitle: notesTextField.text!, coordinate: coordinate, date: todayDate)
+            // Find documents folder
+            let documents = myFile.URLsForDirectory(.DocumentDirectory, inDomains: .UserDomainMask)[0]
+            
+            // Create File
+            let fileURL = documents.URLByAppendingPathComponent("JournalEntries.txt")
+            
+            // Adding entry to array
+            JournalEntryModelController.sharedInstance.addJournalEntry(titleTextField.text!, date: todayDate, coordinate: coordinate, note: notesTextField.text!)
+            
+            // saving array
+            NSKeyedArchiver.archiveRootObject(JournalEntryModelController.sharedInstance.journalEntryArray, toFile: fileURL.path!)
             
             dismissCurrentViewController()
             

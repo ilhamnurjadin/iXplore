@@ -18,6 +18,8 @@
 		F3846D8D1D33DB34007CEE3E /* JournalEntryModelController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3846D8C1D33DB34007CEE3E /* JournalEntryModelController.swift */; };
 		F3846D921D33FF12007CEE3E /* NewEntryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3846D901D33FF12007CEE3E /* NewEntryViewController.swift */; };
 		F3846D931D33FF12007CEE3E /* NewEntryViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F3846D911D33FF12007CEE3E /* NewEntryViewController.xib */; };
+		F3846DC11D350BD8007CEE3E /* CustomTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3846DBF1D350BD8007CEE3E /* CustomTableViewCell.swift */; };
+		F3846DC21D350BD8007CEE3E /* CustomTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F3846DC01D350BD8007CEE3E /* CustomTableViewCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +36,8 @@
 		F3846D8C1D33DB34007CEE3E /* JournalEntryModelController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JournalEntryModelController.swift; sourceTree = "<group>"; };
 		F3846D901D33FF12007CEE3E /* NewEntryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewEntryViewController.swift; sourceTree = "<group>"; };
 		F3846D911D33FF12007CEE3E /* NewEntryViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NewEntryViewController.xib; sourceTree = "<group>"; };
+		F3846DBF1D350BD8007CEE3E /* CustomTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomTableViewCell.swift; sourceTree = "<group>"; };
+		F3846DC01D350BD8007CEE3E /* CustomTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CustomTableViewCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -85,6 +89,7 @@
 			isa = PBXGroup;
 			children = (
 				F3846D6B1D33D032007CEE3E /* JournalEntry.swift */,
+				F3846DBF1D350BD8007CEE3E /* CustomTableViewCell.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -109,6 +114,7 @@
 		F3846D961D33FF2D007CEE3E /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				F3846DC01D350BD8007CEE3E /* CustomTableViewCell.xib */,
 				F3846D641D33CC7D007CEE3E /* MapViewController.xib */,
 				F3846D911D33FF12007CEE3E /* NewEntryViewController.xib */,
 				F3846D561D33CBD0007CEE3E /* LaunchScreen.storyboard */,
@@ -177,6 +183,7 @@
 				F3846D581D33CBD0007CEE3E /* LaunchScreen.storyboard in Resources */,
 				F3846D661D33CC7D007CEE3E /* MapViewController.xib in Resources */,
 				F3846D931D33FF12007CEE3E /* NewEntryViewController.xib in Resources */,
+				F3846DC21D350BD8007CEE3E /* CustomTableViewCell.xib in Resources */,
 				F3846D551D33CBD0007CEE3E /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -188,6 +195,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F3846DC11D350BD8007CEE3E /* CustomTableViewCell.swift in Sources */,
 				F3846D921D33FF12007CEE3E /* NewEntryViewController.swift in Sources */,
 				F3846D6C1D33D032007CEE3E /* JournalEntry.swift in Sources */,
 				F3846D4E1D33CBD0007CEE3E /* AppDelegate.swift in Sources */,
