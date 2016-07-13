@@ -65,7 +65,7 @@ class NewEntryViewController: UIViewController, CLLocationManagerDelegate, UIIma
         
         // cast the object as an image
         if let pickedImage = info["UIImagePickerControllerOriginalImage"] as? UIImage {
-            imageView.contentMode = .ScaleAspectFit
+            imageView.contentMode = .ScaleAspectFill
             // what should this be?
             
             imageView.image = pickedImage
