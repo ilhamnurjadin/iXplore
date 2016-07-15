@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
     </dependencies>
     <objects>
@@ -15,39 +16,52 @@
                 <rect key="frame" x="0.0" y="0.0" width="320" height="81.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="rla-Qw-egB">
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="rla-Qw-egB">
                         <rect key="frame" x="0.0" y="0.0" width="81.5" height="81.5"/>
                         <constraints>
-                            <constraint firstAttribute="height" constant="82" id="KdX-8Z-bnb"/>
-                            <constraint firstAttribute="width" constant="82" id="b3J-LD-GPO"/>
+                            <constraint firstAttribute="width" secondItem="rla-Qw-egB" secondAttribute="height" multiplier="1:1" id="vYi-uI-o4d"/>
                         </constraints>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VEi-vs-a2u">
-                        <rect key="frame" x="96" y="19" width="160" height="21"/>
+                        <rect key="frame" x="80" y="19" width="160" height="21"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Date" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4vB-40-KgT">
-                        <rect key="frame" x="96" y="45" width="160" height="14.5"/>
+                        <rect key="frame" x="80" y="45" width="160" height="14.5"/>
                         <fontDescription key="fontDescription" type="system" pointSize="12"/>
                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="infoLight" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="L0X-Z0-xyK">
+                        <rect key="frame" x="275.5" y="28.5" width="25" height="25"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="25" id="SyI-bV-91a"/>
+                            <constraint firstAttribute="height" constant="25" id="VQA-hO-9g4"/>
+                        </constraints>
+                        <connections>
+                            <action selector="infoButtonPressed:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="hIE-jp-olq"/>
+                        </connections>
+                    </button>
                 </subviews>
                 <constraints>
+                    <constraint firstItem="L0X-Z0-xyK" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="BNv-Dv-7XQ"/>
+                    <constraint firstItem="rla-Qw-egB" firstAttribute="height" secondItem="H2p-sc-9uM" secondAttribute="height" id="IXD-Gw-AGD"/>
+                    <constraint firstItem="rla-Qw-egB" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="LJb-xJ-XJg"/>
                     <constraint firstItem="4vB-40-KgT" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" multiplier="1.3" id="OJn-Ng-ayg"/>
                     <constraint firstItem="VEi-vs-a2u" firstAttribute="width" secondItem="H2p-sc-9uM" secondAttribute="width" multiplier="0.5" id="Sqa-47-t2X"/>
-                    <constraint firstItem="rla-Qw-egB" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="ZqN-kZ-zuR"/>
+                    <constraint firstItem="L0X-Z0-xyK" firstAttribute="centerX" secondItem="H2p-sc-9uM" secondAttribute="centerX" multiplier="1.8" id="X1W-dX-Wbm"/>
                     <constraint firstItem="VEi-vs-a2u" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" multiplier="0.7" id="cpy-10-xEl"/>
                     <constraint firstItem="4vB-40-KgT" firstAttribute="leading" secondItem="VEi-vs-a2u" secondAttribute="leading" id="jvd-7c-4GW"/>
-                    <constraint firstItem="VEi-vs-a2u" firstAttribute="centerX" secondItem="H2p-sc-9uM" secondAttribute="centerX" multiplier="1.1" id="pBC-MN-lJ7"/>
-                    <constraint firstItem="rla-Qw-egB" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="xEc-CQ-T96"/>
+                    <constraint firstItem="rla-Qw-egB" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="mqO-Tr-TUt"/>
+                    <constraint firstItem="VEi-vs-a2u" firstAttribute="centerX" secondItem="H2p-sc-9uM" secondAttribute="centerX" id="pBC-MN-lJ7"/>
                     <constraint firstItem="4vB-40-KgT" firstAttribute="width" secondItem="H2p-sc-9uM" secondAttribute="width" multiplier="0.5" id="yB6-39-r5h"/>
                 </constraints>
             </tableViewCellContentView>
             <connections>
                 <outlet property="dateLabel" destination="4vB-40-KgT" id="g47-sl-OZ5"/>
+                <outlet property="photoView" destination="rla-Qw-egB" id="lb6-gY-xnb"/>
                 <outlet property="titleLabel" destination="VEi-vs-a2u" id="uRj-ed-hcJ"/>
             </connections>
             <point key="canvasLocation" x="420" y="299"/>

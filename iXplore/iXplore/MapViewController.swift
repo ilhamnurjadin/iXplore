@@ -30,6 +30,9 @@ class MapViewController: UIViewController, UITableViewDelegate, UITableViewDataS
         
         let selector = #selector(presentNewViewControllerModally)
         
+        // doesn't work??
+        //self.navigationController!.navigationBar.barTintColor = UIColor(red: 67, green: 67, blue: 67, alpha: 1)
+        
         // Creating Add Button
         let addButton = UIBarButtonItem(barButtonSystemItem: .Add, target: self, action: selector)
         
@@ -37,23 +40,11 @@ class MapViewController: UIViewController, UITableViewDelegate, UITableViewDataS
         self.navigationItem.setRightBarButtonItem(addButton, animated: true)
         
         // Table view has a cell
-        self.tableView.registerNib(UINib (nibName: "CustomTableViewCell", bundle: nil), forCellReuseIdentifier: "CellIdentifier")
+        self.tableView.registerNib(UINib(nibName: "CustomTableViewCell", bundle: nil), forCellReuseIdentifier: "CellIdentifier")
         
     }
     
     override func viewDidAppear(animated: Bool) {
-        
-        // Persistence
-        // Find documents folder
-        let documents = myFile.URLsForDirectory(.DocumentDirectory, inDomains: .UserDomainMask)[0]
-        
-        // Create File
-        let fileURL = documents.URLByAppendingPathComponent("JournalEntries.txt")
-        
-        // Setting the stored array to the array in the model controller
-        if let entries = NSKeyedUnarchiver.unarchiveObjectWithFile(fileURL.path!) as? [JournalEntry] {
-            JournalEntryModelController.sharedInstance.journalEntryArray = entries
-        }
         
         // Add annotations
         mapView.addAnnotations(JournalEntryModelController.sharedInstance.journalEntryArray)
@@ -91,7 +82,7 @@ class MapViewController: UIViewController, UITableViewDelegate, UITableViewDataS
         
         cell.titleLabel.text = JournalEntryModelController.sharedInstance.journalEntryArray[indexPath.row].title
         cell.dateLabel.text = JournalEntryModelController.sharedInstance.journalEntryArray[indexPath.row].date
-        cell.imageView?.image = JournalEntryModelController.sharedInstance.journalEntryArray[indexPath.row].image
+        cell.photoView.image = JournalEntryModelController.sharedInstance.journalEntryArray[indexPath.row].image
         
         return cell
     }
@@ -105,6 +96,52 @@ class MapViewController: UIViewController, UITableViewDelegate, UITableViewDataS
         let region = MKCoordinateRegion(center: location, span: span)  // region where view is set to
         
         mapView.setRegion(region, animated: true)
+        
+    }
+    
+    func tableView(tableView: UITableView, editActionsForRowAtIndexPath indexPath: NSIndexPath) -> [UITableViewRowAction]? {
+        
+        let delete = UITableViewRowAction(style: .Normal, title: "Delete") { action, index in
+            
+            let tempID = JournalEntryModelController.sharedInstance.journalEntryArray[index.row].ID
+            
+            let manager = NSFileManager.defaultManager()
+            let documents = manager.URLsForDirectory(.DocumentDirectory, inDomains: .UserDomainMask)[0]
+            
+            do {
+                let files = try manager.contentsOfDirectoryAtURL(documents, includingPropertiesForKeys: nil, options: [])
+                for file in files {
+                    if let entry = NSKeyedUnarchiver.unarchiveObjectWithFile(file.path!) as? JournalEntry {
+                        if entry.ID == tempID {
+                            do {
+                                JournalEntryModelController.sharedInstance.journalEntryArray.removeAtIndex(index.row)
+                                tableView.deleteRowsAtIndexPaths([index], withRowAnimation: UITableViewRowAnimation.Automatic)
+                                try manager.removeItemAtPath(file.path!)
+                            }
+                            catch {
+                                print("could not delete file")
+                            }
+                        }
+                    }
+                }
+                
+                tableView.reloadData()
+                
+            }
+            catch {
+            }
+        }
+        delete.backgroundColor = .redColor()
+        let edit = UITableViewRowAction(style: .Normal, title: "Edit") { action, index in
+            
+        }
+        edit.backgroundColor = .orangeColor()
+        let share = UITableViewRowAction(style: .Normal, title: "Share") { action, index in
+            // share to fb code
+        }
+        share.backgroundColor = .blueColor()
+        
+        return [delete, edit, share]
         
     }
     

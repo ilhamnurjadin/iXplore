@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		528889717A44EC86C3B9BF6A /* Pods_iXplore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 12AF7080508A4F720570D937 /* Pods_iXplore.framework */; };
 		F3846D4E1D33CBD0007CEE3E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3846D4D1D33CBD0007CEE3E /* AppDelegate.swift */; };
 		F3846D551D33CBD0007CEE3E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F3846D541D33CBD0007CEE3E /* Assets.xcassets */; };
 		F3846D581D33CBD0007CEE3E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F3846D561D33CBD0007CEE3E /* LaunchScreen.storyboard */; };
@@ -20,9 +21,20 @@
 		F3846D931D33FF12007CEE3E /* NewEntryViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F3846D911D33FF12007CEE3E /* NewEntryViewController.xib */; };
 		F3846DC11D350BD8007CEE3E /* CustomTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3846DBF1D350BD8007CEE3E /* CustomTableViewCell.swift */; };
 		F3846DC21D350BD8007CEE3E /* CustomTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F3846DC01D350BD8007CEE3E /* CustomTableViewCell.xib */; };
+		F3846E051D3658D2007CEE3E /* TestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3846E031D3658D2007CEE3E /* TestViewController.swift */; };
+		F3846E061D3658D2007CEE3E /* TestViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F3846E041D3658D2007CEE3E /* TestViewController.xib */; };
+		F3846E2E1D369085007CEE3E /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F3846E2B1D369085007CEE3E /* FBSDKCoreKit.framework */; };
+		F3846E2F1D369085007CEE3E /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F3846E2C1D369085007CEE3E /* FBSDKLoginKit.framework */; };
+		F3846E301D369085007CEE3E /* FBSDKShareKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F3846E2D1D369085007CEE3E /* FBSDKShareKit.framework */; };
+		F3846E591D37A981007CEE3E /* MoreInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3846E571D37A981007CEE3E /* MoreInfoViewController.swift */; };
+		F3846E5A1D37A981007CEE3E /* MoreInfoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F3846E581D37A981007CEE3E /* MoreInfoViewController.xib */; };
+		F3846E5C1D37B38F007CEE3E /* DateField.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3846E5B1D37B38F007CEE3E /* DateField.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		12AF7080508A4F720570D937 /* Pods_iXplore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_iXplore.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		94C477AACE2F5356667A47F5 /* Pods-iXplore.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iXplore.release.xcconfig"; path = "Pods/Target Support Files/Pods-iXplore/Pods-iXplore.release.xcconfig"; sourceTree = "<group>"; };
+		C149A22A8902237F037E0AB2 /* Pods-iXplore.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iXplore.debug.xcconfig"; path = "Pods/Target Support Files/Pods-iXplore/Pods-iXplore.debug.xcconfig"; sourceTree = "<group>"; };
 		F3846D4A1D33CBD0007CEE3E /* iXplore.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iXplore.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F3846D4D1D33CBD0007CEE3E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F3846D541D33CBD0007CEE3E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -38,6 +50,14 @@
 		F3846D911D33FF12007CEE3E /* NewEntryViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NewEntryViewController.xib; sourceTree = "<group>"; };
 		F3846DBF1D350BD8007CEE3E /* CustomTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomTableViewCell.swift; sourceTree = "<group>"; };
 		F3846DC01D350BD8007CEE3E /* CustomTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CustomTableViewCell.xib; sourceTree = "<group>"; };
+		F3846E031D3658D2007CEE3E /* TestViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestViewController.swift; sourceTree = "<group>"; };
+		F3846E041D3658D2007CEE3E /* TestViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TestViewController.xib; sourceTree = "<group>"; };
+		F3846E2B1D369085007CEE3E /* FBSDKCoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKCoreKit.framework; path = "Pods/../build/Debug-iphoneos/FBSDKCoreKit/FBSDKCoreKit.framework"; sourceTree = "<group>"; };
+		F3846E2C1D369085007CEE3E /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKLoginKit.framework; path = "Pods/../build/Debug-iphoneos/FBSDKLoginKit/FBSDKLoginKit.framework"; sourceTree = "<group>"; };
+		F3846E2D1D369085007CEE3E /* FBSDKShareKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKShareKit.framework; path = "Pods/../build/Debug-iphoneos/FBSDKShareKit/FBSDKShareKit.framework"; sourceTree = "<group>"; };
+		F3846E571D37A981007CEE3E /* MoreInfoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MoreInfoViewController.swift; sourceTree = "<group>"; };
+		F3846E581D37A981007CEE3E /* MoreInfoViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MoreInfoViewController.xib; sourceTree = "<group>"; };
+		F3846E5B1D37B38F007CEE3E /* DateField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateField.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -45,14 +65,38 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F3846E2E1D369085007CEE3E /* FBSDKCoreKit.framework in Frameworks */,
+				F3846E2F1D369085007CEE3E /* FBSDKLoginKit.framework in Frameworks */,
+				F3846E301D369085007CEE3E /* FBSDKShareKit.framework in Frameworks */,
 				F3846D6A1D33CDAE007CEE3E /* CoreLocation.framework in Frameworks */,
 				F3846D681D33CDA8007CEE3E /* MapKit.framework in Frameworks */,
+				528889717A44EC86C3B9BF6A /* Pods_iXplore.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4651880F5816FEE16E505689 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				F3846E2B1D369085007CEE3E /* FBSDKCoreKit.framework */,
+				F3846E2C1D369085007CEE3E /* FBSDKLoginKit.framework */,
+				F3846E2D1D369085007CEE3E /* FBSDKShareKit.framework */,
+				12AF7080508A4F720570D937 /* Pods_iXplore.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		DC6E43FDB2C1A01393FEBA38 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				C149A22A8902237F037E0AB2 /* Pods-iXplore.debug.xcconfig */,
+				94C477AACE2F5356667A47F5 /* Pods-iXplore.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		F3846D411D33CBD0007CEE3E = {
 			isa = PBXGroup;
 			children = (
@@ -60,6 +104,8 @@
 				F3846D671D33CDA8007CEE3E /* MapKit.framework */,
 				F3846D4C1D33CBD0007CEE3E /* iXplore */,
 				F3846D4B1D33CBD0007CEE3E /* Products */,
+				DC6E43FDB2C1A01393FEBA38 /* Pods */,
+				4651880F5816FEE16E505689 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -75,6 +121,8 @@
 			isa = PBXGroup;
 			children = (
 				F3846D4D1D33CBD0007CEE3E /* AppDelegate.swift */,
+				F3846E031D3658D2007CEE3E /* TestViewController.swift */,
+				F3846E041D3658D2007CEE3E /* TestViewController.xib */,
 				F3846D6D1D33D037007CEE3E /* Models */,
 				F3846D951D33FF24007CEE3E /* Model Controllers */,
 				F3846D941D33FF1B007CEE3E /* View Controllers */,
@@ -90,6 +138,7 @@
 			children = (
 				F3846D6B1D33D032007CEE3E /* JournalEntry.swift */,
 				F3846DBF1D350BD8007CEE3E /* CustomTableViewCell.swift */,
+				F3846E5B1D37B38F007CEE3E /* DateField.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -99,6 +148,7 @@
 			children = (
 				F3846D631D33CC7D007CEE3E /* MapViewController.swift */,
 				F3846D901D33FF12007CEE3E /* NewEntryViewController.swift */,
+				F3846E571D37A981007CEE3E /* MoreInfoViewController.swift */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -117,6 +167,7 @@
 				F3846DC01D350BD8007CEE3E /* CustomTableViewCell.xib */,
 				F3846D641D33CC7D007CEE3E /* MapViewController.xib */,
 				F3846D911D33FF12007CEE3E /* NewEntryViewController.xib */,
+				F3846E581D37A981007CEE3E /* MoreInfoViewController.xib */,
 				F3846D561D33CBD0007CEE3E /* LaunchScreen.storyboard */,
 			);
 			name = Views;
@@ -129,9 +180,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = F3846D5C1D33CBD0007CEE3E /* Build configuration list for PBXNativeTarget "iXplore" */;
 			buildPhases = (
+				35747564154E522D7C98589D /* [CP] Check Pods Manifest.lock */,
 				F3846D461D33CBD0007CEE3E /* Sources */,
 				F3846D471D33CBD0007CEE3E /* Frameworks */,
 				F3846D481D33CBD0007CEE3E /* Resources */,
+				B67D3D305BCC9D08648A5C5B /* [CP] Embed Pods Frameworks */,
+				872394BEC0550381EEDE5D11 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -183,24 +237,77 @@
 				F3846D581D33CBD0007CEE3E /* LaunchScreen.storyboard in Resources */,
 				F3846D661D33CC7D007CEE3E /* MapViewController.xib in Resources */,
 				F3846D931D33FF12007CEE3E /* NewEntryViewController.xib in Resources */,
+				F3846E5A1D37A981007CEE3E /* MoreInfoViewController.xib in Resources */,
 				F3846DC21D350BD8007CEE3E /* CustomTableViewCell.xib in Resources */,
+				F3846E061D3658D2007CEE3E /* TestViewController.xib in Resources */,
 				F3846D551D33CBD0007CEE3E /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		35747564154E522D7C98589D /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		872394BEC0550381EEDE5D11 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-iXplore/Pods-iXplore-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		B67D3D305BCC9D08648A5C5B /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-iXplore/Pods-iXplore-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		F3846D461D33CBD0007CEE3E /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F3846E051D3658D2007CEE3E /* TestViewController.swift in Sources */,
 				F3846DC11D350BD8007CEE3E /* CustomTableViewCell.swift in Sources */,
 				F3846D921D33FF12007CEE3E /* NewEntryViewController.swift in Sources */,
 				F3846D6C1D33D032007CEE3E /* JournalEntry.swift in Sources */,
 				F3846D4E1D33CBD0007CEE3E /* AppDelegate.swift in Sources */,
+				F3846E591D37A981007CEE3E /* MoreInfoViewController.swift in Sources */,
 				F3846D8D1D33DB34007CEE3E /* JournalEntryModelController.swift in Sources */,
 				F3846D651D33CC7D007CEE3E /* MapViewController.swift in Sources */,
+				F3846E5C1D37B38F007CEE3E /* DateField.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -305,8 +412,15 @@
 		};
 		F3846D5D1D33CBD0007CEE3E /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = C149A22A8902237F037E0AB2 /* Pods-iXplore.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/build/Debug-iphoneos/FBSDKCoreKit",
+					"$(PROJECT_DIR)/build/Debug-iphoneos/FBSDKLoginKit",
+					"$(PROJECT_DIR)/build/Debug-iphoneos/FBSDKShareKit",
+				);
 				INFOPLIST_FILE = iXplore/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.IlhamNurjadin.iXplore;
@@ -316,8 +430,15 @@
 		};
 		F3846D5E1D33CBD0007CEE3E /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 94C477AACE2F5356667A47F5 /* Pods-iXplore.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/build/Debug-iphoneos/FBSDKCoreKit",
+					"$(PROJECT_DIR)/build/Debug-iphoneos/FBSDKLoginKit",
+					"$(PROJECT_DIR)/build/Debug-iphoneos/FBSDKShareKit",
+				);
 				INFOPLIST_FILE = iXplore/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.IlhamNurjadin.iXplore;
@@ -344,6 +465,7 @@
 				F3846D5E1D33CBD0007CEE3E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

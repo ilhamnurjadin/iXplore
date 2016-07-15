@@ -12,6 +12,7 @@ class CustomTableViewCell: UITableViewCell {
 
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var dateLabel: UILabel!
+    @IBOutlet weak var photoView: UIImageView!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -23,5 +24,21 @@ class CustomTableViewCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
+    
+    @IBAction func infoButtonPressed(sender: AnyObject) {
+        //presentMoreInfoViewController()
+    }
+    
+//    func presentMoreInfoViewController() {
+//        
+//        // Create NewEntryViewController
+//        let newEntryViewController = NewEntryViewController(nibName: "NewEntryViewController", bundle: nil)
+//        
+//        // Create navigation controller
+//        let navController = UINavigationController(rootViewController: newEntryViewController)
+//        
+//        self.navigationController?.presentViewController(navController, animated: true) {}
+//        
+//    }
     
 }

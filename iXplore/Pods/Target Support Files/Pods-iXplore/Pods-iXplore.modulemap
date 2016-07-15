@@ -1,0 +1,6 @@
+framework module Pods_iXplore {
+  umbrella header "Pods-iXplore-umbrella.h"
+
+  export *
+  module * { export * }
+}

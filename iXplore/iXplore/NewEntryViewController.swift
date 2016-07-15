@@ -17,6 +17,7 @@ class NewEntryViewController: UIViewController, CLLocationManagerDelegate, UIIma
     @IBOutlet weak var latitudeTextField: UITextField!
     @IBOutlet weak var longitudeTextField: UITextField!
     @IBOutlet weak var imageView: UIImageView!
+    @IBOutlet weak var dateTextField: DateField!
     
     let imagePicker = UIImagePickerController()
     let locManager = CLLocationManager()
@@ -53,6 +54,9 @@ class NewEntryViewController: UIViewController, CLLocationManagerDelegate, UIIma
         imagePicker.delegate = self
         imagePicker.sourceType = .PhotoLibrary
         
+        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
+        view.addGestureRecognizer(tap)
+        
     }
     
     func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
@@ -65,9 +69,6 @@ class NewEntryViewController: UIViewController, CLLocationManagerDelegate, UIIma
         
         // cast the object as an image
         if let pickedImage = info["UIImagePickerControllerOriginalImage"] as? UIImage {
-            imageView.contentMode = .ScaleAspectFill
-            // what should this be?
-            
             imageView.image = pickedImage
         }
         
@@ -88,6 +89,7 @@ class NewEntryViewController: UIViewController, CLLocationManagerDelegate, UIIma
             // Create coordinate
             let coordinate = CLLocationCoordinate2D(latitude: newLatitude!, longitude: newLongitude!)
             
+            /*
             // Getting today's date
             let date = NSDate()
             let calendar = NSCalendar.currentCalendar()
@@ -97,19 +99,49 @@ class NewEntryViewController: UIViewController, CLLocationManagerDelegate, UIIma
             let month = components.month
             let day = components.day
             
-            let todayDate = "\(month) \(day), \(year)"
+            var monthName = ""
+            switch month {
+            case 1: monthName = "January"
+            case 2: monthName = "February"
+            case 3: monthName = "March"
+            case 4: monthName = "April"
+            case 5: monthName = "May"
+            case 6: monthName = "June"
+            case 7: monthName = "July"
+            case 8: monthName = "August"
+            case 9: monthName = "September"
+            case 10: monthName = "October"
+            case 11: monthName = "November"
+            case 12: monthName = "December"
+            default: monthName = ""
+            }
+            
+            let todayDate = "\(monthName) \(day), \(year)"
+            */
             
             // Find documents folder
             let documents = myFile.URLsForDirectory(.DocumentDirectory, inDomains: .UserDomainMask)[0]
             
-            // Create File
-            let fileURL = documents.URLByAppendingPathComponent("JournalEntries.txt")
-            
             // Adding entry to array
-            JournalEntryModelController.sharedInstance.addJournalEntry(titleTextField.text!, date: todayDate, coordinate: coordinate, note: notesTextField.text!, image: imageView.image)
+            JournalEntryModelController.sharedInstance.addJournalEntry(titleTextField.text!, date: dateTextField.text!, coordinate: coordinate, note: notesTextField.text!, image: imageView.image)
+            
+            let tempEntry = JournalEntry(title: titleTextField.text!, date: dateTextField.text!, coordinate: coordinate, note: notesTextField.text!, image: imageView.image)
+            
+            
+            // Create File
+            // let fileURL = documents.URLByAppendingPathComponent("JournalEntries.txt")
+            
+            
+            // Create File with UUID
+            let fileURL = documents.URLByAppendingPathComponent(tempEntry.ID.UUIDString)
+            
             
             // saving array
-            NSKeyedArchiver.archiveRootObject(JournalEntryModelController.sharedInstance.journalEntryArray, toFile: fileURL.path!)
+            //NSKeyedArchiver.archiveRootObject(JournalEntryModelController.sharedInstance.journalEntryArray, toFile: fileURL.path!)
+            
+            
+            // saving each entry
+            NSKeyedArchiver.archiveRootObject(tempEntry, toFile: fileURL.path!)
             
             dismissCurrentViewController()
             
@@ -132,6 +164,12 @@ class NewEntryViewController: UIViewController, CLLocationManagerDelegate, UIIma
     
     func dismissCurrentViewController() {
         self.navigationController?.dismissViewControllerAnimated(true, completion: nil)
+    }
+    
+    //Calls this function when the tap is recognized.
+    func dismissKeyboard() {
+        //Causes the view (or one of its embedded text fields) to resign the first responder status.
+        view.endEditing(true)
     }
     
     /*

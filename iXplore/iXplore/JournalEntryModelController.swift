@@ -12,7 +12,26 @@ import MapKit
 class JournalEntryModelController {
     
     static let sharedInstance = JournalEntryModelController()
-    var journalEntryArray = [JournalEntry]()
+    
+    var journalEntryArray: [JournalEntry] = {
+        
+        let manager = NSFileManager.defaultManager()
+        let documents = manager.URLsForDirectory(.DocumentDirectory, inDomains: .UserDomainMask)[0]
+        
+        do {
+            let files = try manager.contentsOfDirectoryAtURL(documents, includingPropertiesForKeys: nil, options: [])
+            var entries = [JournalEntry]()
+            for file in files {
+                if let entry = NSKeyedUnarchiver.unarchiveObjectWithFile(file.path!) as? JournalEntry {
+                    entries.append(entry)
+                }
+            }
+            return entries
+        }
+        catch {
+            return []
+        }
+    }()
     
     private init() {
 //        journalEntryArray = [JournalEntry(title: "Never@Home", subtitle: "Hostel Place that isn't too great", coordinate: CLLocationCoordinate2D(latitude: -33.907772, longitude: 18.40918), date: "10 July 2016"), JournalEntry(title: "Workshop 17", subtitle: "The Workplace ye", coordinate: CLLocationCoordinate2D(latitude: -33.9068, longitude: 18.4222), date: "11 July 2016"),]
